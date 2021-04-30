@@ -16,7 +16,7 @@
         overflow: hidden;
       }
       body {
-        background: pink;
+        background:lavender;
       }
       #test {
         background: blue;
@@ -38,13 +38,16 @@
       var canvas = document.getElementById("test");
       if (canvas.getContext) {
         var ctx = canvas.getContext("2d");
-        ctx.fillStyle="green";
-        ctx.lineWidth=10;
-        ctx.lineJoin="bevel"
-        ctx.fillRect(0,0,100,100);
-        ctx.strokeRect(100,100,100,100);
-        ctx.clearRect(100,100,100,100);
-        ctx.strokeStyle="pink";
+        ctx.strokeStyle="red";
+        ctx.lineWidth="5"
+        ctx.fillStyle="pink";
+        ctx.lineCap="round";
+        ctx.moveTo(50,50);
+        ctx.lineTo(50,100);
+        ctx.lineTo(100,100);
+        ctx.lineTo(50,50);
+        ctx.stroke();
+        ctx.fill();
       }
     };
   </script>
