@@ -48,3 +48,16 @@ square：线段末端以方形结束，但是增加了一个宽度和线段相�
 默认值是butt。
 
 注意：当调用fill（）时，会自动闭合；而调用stroke（）时不会自动闭合。
+
+4.save,restore
+save() 相当于向样式栈压入当前样式,可类比push_back()
+restore（）返回最近保存的样式，可类比pop（）
+基本模板：ctx在这里为canvas对象
+ctx.save()
+//关于样式的设置
+ctx.beginPath();
+//关于路径
+ctx.restore();
+
+路径容器：每次调用路径api时，都会往路径做登记，beginPath（）清空该容器。
+样式容器：每次调用样式api时，都会往样式容器登记。调用save（）时候，将样式容器里的状态压入样式栈。调用restore（）时候将样式栈的宅顶状态弹出，进行覆盖。
