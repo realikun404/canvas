@@ -61,3 +61,20 @@ ctx.restore();
 
 路径容器：每次调用路径api时，都会往路径做登记，beginPath（）清空该容器。
 样式容器：每次调用样式api时，都会往样式容器登记。调用save（）时候，将样式容器里的状态压入样式栈。调用restore（）时候将样式栈的宅顶状态弹出，进行覆盖。
+
+5.其他曲线
+角度与弧度的关系：radians=(Math.PI/180)*degrees
+###
+arc(x,y,radius,startAngle,endAngle,anticlockwise)
+画一个以（x，y）为圆心的以radius为半径的圆弧（圆），从startangle到endangle结束。
+anticlockwise：为bool类型，是true顺时针，false逆时针。
+###
+arcto(x1,y1,x2,y2,radius);圆弧
+注意这里还要一个moveTo（）来指定起始方向。
+###二次贝塞尔
+quadraticCurveTo(cp1x,cp1y,x,y);
+绘制二次贝塞尔曲线，参数为控制点和结束点
+###
+三次贝塞尔
+bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
+起点为moveTo指定的点
