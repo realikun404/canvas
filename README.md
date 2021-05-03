@@ -50,7 +50,7 @@ square：线段末端以方形结束，但是增加了一个宽度和线段相�
 注意：当调用fill（）时，会自动闭合；而调用stroke（）时不会自动闭合。
 
 4.save,restore
-save() 相当于向样式栈压入当前样式,可类比push_back()
+save() 相当于向样式栈压入当前样式,可类比push_back()，也保存了一些其他东西
 restore（）返回最近保存的样式，可类比pop（）
 基本模板：ctx在这里为canvas对象
 ctx.save()
@@ -78,3 +78,14 @@ quadraticCurveTo(cp1x,cp1y,x,y);
 三次贝塞尔
 bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
 起点为moveTo指定的点
+
+6.变换
+###
+translate(x,y) 移动原点，这个函数重复作用有累加效果。
+###
+rotate(angle),单位为弧度，绕原点顺时针方向转。
+###
+scale(x,y) 表示x,y方向上的缩放因子，必须是正值。有累积效果。
+css像素是一个抽象单位。
+放大：css像素的的面积，区域内css像素的个数减少。
+减小：跟放大同理。

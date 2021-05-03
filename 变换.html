@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        background: pink;
+      }
+      #test {
+        background: blue;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="test" width="200px" height="200px"> 
+    </canvas>
+  </body>
+  <script type="text/javascript">
+    window.onload = function () {
+      var canvas = document.getElementById("test");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+        ctx.translate(100,100);
+        ctx.rotate(45*Math.PI/180);
+        ctx.beginPath();
+        ctx.scale(0.5,0.5);
+        ctx.fillRect(-25,-25,50,50);
+      }
+    };
+  </script>
+</html>
