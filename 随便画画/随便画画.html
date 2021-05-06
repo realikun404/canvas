@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      html,
+      body {
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
+        background: honeydew;
+      }
+      #clock {
+        background: lightcoral;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="clock" width="400px" height="400px"> </canvas>
+    <script>
+      $(function () {
+        var clock = document.getElementById("clock");
+        if (clock.getContext) {
+          var ctx = clock.getContext("2d");
+          ctx.translate(200, 200);
+          ctx.rotate((-90 * Math.PI) / 180);
+
+          ctx.save();
+          ctx.lineWidth = "14";
+          ctx.strokeStyle = "blue";
+          ctx.lineCap = "round";
+          ctx.beginPath();
+          ctx.arc(0, 0, 140, 0, (360 * Math.PI) / 180);
+          ctx.stroke();
+          ctx.restore();
+
+          for(var i=0;i<=59;i++) {
+            ctx.save();
+            ctx.rotate(i*6*Math.PI/180);
+            ctx.strokeStyle="blue";
+            ctx.lineWidth="2";
+            ctx.beginPath();
+            ctx.moveTo(0,0);
+            ctx.lineTo(100,0);
+            ctx.stroke();
+            ctx.strokeRect(0,-10,200,200);
+            ctx.restore();
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
